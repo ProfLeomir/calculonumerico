@@ -1,0 +1,201 @@
+% Modelo de Aula em LaTeX
+% IFRS - Ibirubá
+% Se utilizar o Overleaf, clique em RICH TEXT acima para uma visualização mais suave do código!
+
+\documentclass[a4paper,11pt]{article}
+
+%-------------------------------------------------------------------------
+% PACOTES (não é necessário alterar nada) 
+%-------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} 
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{qrcode}
+\usepackage{color} 
+\usepackage{hyperref} 
+\usepackage{geometry} 
+\usepackage{pgfplots}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd,amsxtra} 
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,fit,arrows,through,calc,shapes.geometric,patterns,decorations.markings}
+\usepackage{pgf,pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\definecolor{myblue}{RGB}{56,94,141}
+\definecolor{mygreen}{RGB}{51,153,0}
+\definecolor{myred}{RGB}{204,0,0}
+\usepackage{setspace}
+\geometry{a4paper,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+%%%%%%%%%%%%%%%%%%%Rodapé com o QR Code%%%%%%%%%%%%%%%%
+\usepackage{atbegshi}
+\AtBeginShipout{\AtBeginShipoutUpperLeft{%
+  \put(\dimexpr\paperwidth-3cm\relax,-\dimexpr\paperheight-3cm\relax){%
+    \begin{tikzpicture}[overlay]
+      \qrcode[height=2cm]{https://cocalc.com/share/projects/9ef3ae7c-705e-41f9-b56a-4bf1c96e517c}
+    \end{tikzpicture}%
+  }%
+}}
+%-------------------------------------------------------------------------
+% CABEÇALHO (não é necessário alterar nada) 
+%-------------------------------------------------------------------------
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{minipage}{6cm} %Logo do IFPR
+\resizebox{6cm}{1.6cm}{
+\begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4}]
+\tikzset{mynode/.style={square,rounded corners,draw=mygreen, top color=mygreen, bottom color=mygreen,very thick, text centered},}  
+\node[circle, draw=myred , top color=myred, bottom color=myred] (q1) {$\quad$};
+\node[mynode, below=0.08cm of q1] (q2) {$\;\;$};
+\node[mynode, below=0.08cm of q2] (q3) {$\;\;$};
+\node[mynode, below=0.08cm of q3] (q4) {$\;\;$};
+\node[mynode, right=0.08cm of q1] (q5) {$\;\;$};
+\node[mynode, below=0.08cm of q5] (q6) {$\;\;$};
+\node[mynode, below=0.08cm of q6] (q7) {$\;\;$};
+\node[mynode, below=0.08cm of q7] (q8) {$\;\;$};
+\node[mynode, right=0.08cm of q5] (q9) {$\;\;$};
+\node[mynode, right=0.08cm of q7] (q10) {$\;\;$};
+\node[right=0.08cm of q8] (aux) {};
+\node[text centered, right=0.06cm of q10] (q11) {\huge \sf \textbf{INSTITUTO FEDERAL}};
+\node[mygreen, text centered, right=0.5cm of aux] (q12) {\huge\textsf{Rio Grande do Sul}};
+\end{tikzpicture}}
+\end{minipage}
+\begin{minipage}{7cm}
+\begin{center}
+\begin{footnotesize}
+{\Large \textbf{Trabalho II}}\\
+\end{footnotesize}
+\end{center}
+\end{minipage}
+\begin{minipage}{4cm}
+\centering
+\includegraphics[scale=0.12]{meBrasil.png}\\
+\begin{scriptsize}
+\textsf{Ministério da Educação}
+\end{scriptsize}
+\end{minipage}
+\doublespacing
+\begin{center}
+
+\textbf{Ciências da Computação}  \ $-$ \ \textbf{ Valor: 2,0}  \\
+
+\textbf{Cálculo I}  \ $-$ \ \textbf{Professor Me. Leomir A. S. Grave}   \\
+
+\end{center}
+
+
+\textbf{Nome:} \rule{12cm}{0.2mm} Data: 23/06/2023
+
+\textit{Justifique suas respostas com cálculos.}
+%-------------------------------------------------------------------------
+% Escrever a Aula apartir daqui:
+%-------------------------------------------------------------------------
+
+\textbf{Questão 1} $-$ \textit{Peso: 0,25}
+
+Calcule $\displaystyle\lim_{x\rightarrow 3}\dfrac{x^2-9}{(x-3)^2}$
+
+\textbf{Questão 2} $-$ \textit{Peso: 0,5}
+
+Calculando $\displaystyle\lim_{x\rightarrow 5^+}\dfrac{x^2+6}{(5-x)^2}$ e $\displaystyle\lim_{x\rightarrow 5^-}\dfrac{x^2+6}{(5-x)^2}$, podemos afirmar que $\displaystyle\lim_{x\rightarrow 5}\dfrac{x^2+6}{(5-x)^2}$ é $\infty$? \textit{(Demonstre através dos limites laterais)}.
+
+\textbf{Questão 3} $-$ \textit{Peso: 0,25}
+
+Encontre $\displaystyle\lim_{x\rightarrow +\infty}x^n+2n$ com $n \ \in \ \mathbb{N}^*$
+
+
+\textbf{Questão 4} $-$ \textit{Peso: 0,5}
+
+Calcule $\displaystyle\lim_{x\rightarrow \frac{\pi}{2}}\dfrac{\sqrt{1+\cos x}-\sqrt{1-\cos x}}{x}$
+
+
+\textbf{Questão 5} $-$ \textit{Peso: 0,5}
+
+Considere a função $f(x)=\left\{\begin{array}{lllll}x^2-1, \ \ \text{se} \ \ -1\leq x<0\\ 2x,  \ \ \text{se} \ \ 0\leq x<1 \\ 1,   \ \ \text{se} \ \ x = 1 \\ -2x+4, \ \ \text{se} \ \ 1< x\leq 2\\  0, \ \ \text{se} \ \  x>2 \end{array}$ , responda:\\
+
+\begin{tikzpicture}
+\begin{axis}[
+  axis lines=middle,
+  xlabel=$x$,
+  ylabel=$f(x)$,
+  xmin=-2,
+  xmax=3,
+  ymin=-2,
+  ymax=5,
+  xtick={-1,0,1,2},
+  ytick={-1,0,1,2,3,4},
+  legend pos=north west,
+  legend cell align={left},
+  width=8cm,
+  height=6cm,
+]
+
+% Função -1 <= x < 0
+\addplot[domain=-1:0, samples=100, color=black] {x^2 - 1};
+%\addlegendentry{$f(x) = x^2 - 1$}
+
+% Função 0 <= x < 1
+\addplot[domain=0:1, samples=100, color=black] {2*x};
+%\addlegendentry{$f(x) = 2x$}
+
+% Ponto x = 1
+\addplot[mark=*] coordinates {(1,1)};
+%\addlegendentry{$(1, 1)$}
+
+% Função 1 < x <= 2
+\addplot[domain=1:2, samples=100, color=black] {-2*x + 4};
+%\addlegendentry{$f(x) = -2x + 4$}
+
+% Função x > 2
+\addplot[domain=2:3, samples=100, color=black] {0};
+%\addlegendentry{$f(x) = 0$}
+
+% Bolinhas
+\addplot[color=black, mark=*] coordinates {(-1,0)};
+\addplot[color=black, mark=o] coordinates {(0,-1)};
+\addplot[color=black, mark=*] coordinates {(0,0)};
+\addplot[color=black, mark=o] coordinates {(1,1)};
+\addplot[color=black, mark=*] coordinates {(1,1)};
+\addplot[color=black, mark=*] coordinates {(2,0)};
+\addplot[color=black, mark=o] coordinates {(1,2)};
+\end{axis}
+\end{tikzpicture}
+
+a) Existe $f (0)$? 
+
+b) Existe $\displaystyle \lim_{x \rightarrow 0^+ }f(x)$?
+
+c) Existe $\displaystyle \lim_{x \rightarrow 0^- }f(x)$?
+
+d) Existe $\displaystyle \lim_{x \rightarrow 0}f(x)$?
+
+e) $f(x)$ é continua em $x=0$? 
+
+ 
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+%Fonte: 
+
